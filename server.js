@@ -1,17 +1,12 @@
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import dotenv from "dotenv";
-
-// .env 파일 로드
-dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    // 환경 변수에서 CLIENT_URL 가져오기
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
   },
 });
