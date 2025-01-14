@@ -11,7 +11,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     // 환경 변수에서 CLIENT_URL 가져오기
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST"],
   },
 });
