@@ -13,6 +13,7 @@ const io = new Server(httpServer, {
     // 환경 변수에서 CLIENT_URL 가져오기
     origin: process.env.CLIENT_URL,
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
