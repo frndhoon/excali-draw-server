@@ -6,15 +6,12 @@ import dotenv from "dotenv";
 // .env 파일 로드
 dotenv.config();
 
+
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    // 환경 변수에서 CLIENT_URL 가져오기
-    origin: [
-      "https://excali-draw-client-git-main-frndhoons-projects.vercel.app",
-      "https://excali-draw-client.vercel.app",
-    ],
+    origin: [process.env.PROD_CLIENT_URL, process.env.PROD_BRANCH_CLIENT_URL],
     methods: ["GET", "POST"],
     credentials: true,
   },
