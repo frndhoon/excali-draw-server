@@ -11,7 +11,10 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     // 환경 변수에서 CLIENT_URL 가져오기
-    origin: process.env.CLIENT_URL,
+    origin: [
+      "https://excali-draw-client-git-main-frndhoons-projects.vercel.app",
+      "https://excali-draw-client.vercel.app",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   },
